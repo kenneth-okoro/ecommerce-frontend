@@ -16,20 +16,40 @@ export default function Cart() {
     useStateContext();
 
   return (
-    <CartWrapper onClick={() => setShowCart(false)}>
-      <CartStyle onClick={(e) => e.stopPropagation()}>
+    <CartWrapper
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setShowCart(false)}
+    >
+      <CartStyle
+        initial={{ x: "50%" }}
+        animate={{ x: "0%" }}
+        exit={{ x: "50%" }}
+        transition={{ type: "tween" }}
+        onClick={(e) => e.stopPropagation()}
+      >
         {cartItems.length < 1 && (
-          <EmptyStyle>
-            <h1>You have more shopping to do 😜.</h1>
+          <EmptyStyle
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <h2>You have more shopping to do 😜.</h2>
             <FaShoppingCart />
           </EmptyStyle>
         )}
         {cartItems.length >= 1 &&
           cartItems.map((item) => {
             return (
-              <Card key={item.slug}>
+              <Card
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 }}
+                key={item.slug}
+              >
                 <img
-                  src={item.image.data.attributes.formats.thumbnail.url}
+                  src={item.image.data.attributes.formats.small.url}
                   alt={item.title}
                 />
                 <CardInfo>
