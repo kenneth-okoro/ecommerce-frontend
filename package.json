@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.16.1",
+    "@stripe/stripe-js": "^1.46.0",
     "framer-motion": "^7.10.3",
     "next": "13.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
+    "stripe": "^11.5.0",
     "styled-components": "^5.3.6",
     "urql": "^3.0.3"
   },
